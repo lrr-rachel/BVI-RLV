@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BVI-RLV: A Fully Registered Dataset for Low-Light Video Enhancement</title>
+  <meta name="description" content="BVI-RLV is a fully registered low-light video dataset with over 31,800 paired frames from 40 diverse scenes under two controlled low-light conditions, achieving sub-pixel registration for 99.24% of pairs at full HD resolution.">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body, .title, .subtitle, .button, .stat-card .stat-number, .stat-card .stat-label, h1, h2, h3, h4, h5, h6, p, span, a, td, th, li, pre {
+      font-family: 'Google Sans', 'Noto Sans', sans-serif;
+    }
+    .publication-title { font-weight: 700; margin-top: 4rem; }
+    .hero.is-light { background-color: #ffffff; }
+    .author-block { font-weight: 300; margin-right: 0.5rem; }
+    .publication-authors a,
+    .publication-authors a:link,
+    .publication-authors a:visited { color: #2a7ac9 !important; }
+    .publication-authors a:hover { color: #0d4f8b !important; text-decoration: underline; }
+    .publication-links { margin-top: 2rem; }
+    .publication-links .link-block { margin: 0.25rem; display: inline-block; }
+    .publication-links .button { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .stat-card { text-align: center; padding: 1.25rem 0.5rem; border-radius: 8px; background-color: #fafafa; }
+    .stat-card .stat-number { font-family: 'Google Sans', sans-serif; font-size: 2rem; font-weight: 700; color: #363636; }
+    .stat-card .stat-label { color: #6b6b6b; margin-top: 0.25rem; font-size: 0.95rem; }
+    .ours-row { background-color: #fff7e6 !important; font-weight: 600; }
+    .figure-placeholder { border: 1px dashed #c8c8c8; border-radius: 6px; padding: 3rem 1rem; text-align: center; color: #9a9a9a; background-color: #fafafa; }
+    pre.bibtex { background-color: #f5f5f5; padding: 1.25rem; border-radius: 6px; overflow-x: auto; font-size: 0.9rem; }
+    .benchmark-table tbody.group-divider tr:first-child td { border-top: 2px solid #b5b5b5; }
+    .benchmark-table th, .benchmark-table td { vertical-align: middle; }
+    .benchmark-table u { text-decoration: underline; text-underline-offset: 2px; }
+    .benchmark-table tr.faded td,
+    .benchmark-table tr.faded td strong,
+    .benchmark-table tr.faded td u { color: #9a9a9a; }
+    .benchmark-table, .benchmark-table tbody, .benchmark-table thead, .benchmark-table tr, .benchmark-table th, .benchmark-table td { background-color: transparent !important; }
+    .table-wrap { background-color: #fafafa; padding: 1.25rem; border-radius: 6px; }
+    .section { padding: 2.5rem 1.5rem; }
+    .footer { padding: 2.5rem 1.5rem; }
+  </style>
+</head>
+<body>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h1 class="title is-2 publication-title">BVI-RLV: A Fully Registered Dataset<br>for Low-Light Video Enhancement</h1>
+
+      <div class="is-size-5 publication-authors" style="margin-top: 2rem;">
+        <span class="author-block">Ruirui Lin,</span>
+        <span class="author-block">Guoxi Huang,</span>
+        <span class="author-block">Joanne Lin,</span>
+        <span class="author-block">Qi Sun,</span>
+        <span class="author-block">Alexandra Malyugina,</span>
+        <span class="author-block">David R. Bull,</span>
+        <span class="author-block"><a href="https://pui-nantheera.github.io/" target="_blank" rel="noopener">Nantheera Anantrasirichai</a></span>
+      </div>
+
+      <div class="is-size-6 publication-authors" style="margin-top: 1rem;">
+        <span class="author-block">Visual Information Laboratory, Bristol Vision Institute, University of Bristol</span></div>
+      <div class="is-size-6 publication-authors" style="margin-top: 1rem;">
+        <span class="author-block">Funders: EPSRC NIA (UKRI241), UKRI MyWorld Strength in Places Programme (SIPF00006/1).</span>
+      </div>
+
+      <div class="publication-links">
+        <!-- TODO: paste arXiv URL into href -->
+        <span class="link-block">
+          <a href="https://arxiv.org/abs/2407.03535" class="button is-dark is-rounded">
+            <span class="icon"><i class="ai ai-arxiv"></i></span>
+            <span>arXiv</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="#cross-dataset-generalization" class="button is-dark is-rounded">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Code</span>
+          </a>
+        </span>
+        <!-- TODO: paste dataset download URL into href -->
+        <span class="link-block">
+          <a href="https://ieee-dataport.org/open-access/bvi-lowlight-fully-registered-datasets-low-light-image-and-video-enhancement" target="blank" class="button is-dark is-rounded">
+            <span class="icon"><i class="fas fa-database"></i></span>
+            <span>Dataset</span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <img src="images/titlefig.jpg" alt="BVI-RLV dataset examples">
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Abstract</h2>
+    <div class="content has-text-justified">
+      <p>
+        Low-light videos often exhibit spatiotemporally incoherent noise, compromising visibility and degrading performance in computer vision applications. A major challenge for enhancing such content using deep learning lies in the scarcity of pixel-aligned, high-quality training data. We introduce <strong>BVI-RLV</strong>, a fully registered low-light video dataset comprising over <strong>30k paired frames from 40 diverse scenes</strong> under two low-light conditions, each aligned with normal-light ground truth.
+      </p>
+      <p>
+        Unlike existing datasets that rely on neutral density (ND) filters or suffer from misalignment issues, BVI-RLV achieves <strong>sub-pixel registration for 99.24% of data</strong> at full HD resolution across dynamic motion scenarios using a motorized dolly and image-based refinement. The dataset covers a wide range of motion types and realistic temporal noise. We also provide baseline implementations using four representative architectures: Convolutional Neural Network (CNN), Transformer, State Space Model (Mamba), and Diffusion Model (DM). Experiments demonstrate that registration is crucial for supervised learning, yielding up to <strong>5.85 dB PSNR improvement</strong> compared to unregistered training. Models trained on BVI-RLV outperform those trained on existing datasets in cross-dataset evaluations, achieving superior performance even in real-world outdoor scenes.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background-color: #fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Dataset at a Glance</h2>
+    <div class="columns is-multiline" style="margin-top: 1rem;">
+      <div class="column is-3">
+        <div class="stat-card">
+          <div class="stat-number">31,800</div>
+          <div class="stat-label">Paired frames at full HD</div>
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="stat-card">
+          <div class="stat-number">40</div>
+          <div class="stat-label">Diverse indoor scenes</div>
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="stat-card">
+          <div class="stat-number">99.24%</div>
+          <div class="stat-label">Sub-pixel registered pairs</div>
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="stat-card">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Motion types &amp; baselines</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content has-text-justified" style="margin-top: 1.5rem;">
+      <p>
+        BVI-RLV is captured under controlled studio lighting at <strong>1920&times;1080</strong> resolution and 25&nbsp;fps. Video pairs are recorded under normal lighting (100%) and two low-light conditions (<strong>10%</strong> and <strong>20%</strong> of normal intensity, approximately 3-5&nbsp;lux and 10-14&nbsp;lux). Scenes include both static backgrounds with moving objects and fully dynamic scenes captured with the camera mounted on a motorized dolly, covering <strong>linear, nonlinear, rotational, and angled</strong> motion trajectories. The verified alignment error is <strong>0.256&pm;0.451 pixels</strong> via normalized cross-correlation, with 99.24% of pairs achieving less than 1-pixel error.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Capture System</h2>
+    <div class="content has-text-justified">
+      <p>
+        Dataset acquisition was conducted in a dedicated studio for precise control of lighting and color temperature. Four <strong>Cineo MavX lights</strong> (up to 8,000 lumens each) were set to <strong>6,500&nbsp;K</strong>, with intensity calibrated by a Zero 88 FLX S24 light controller. To maximize accessibility, we used a consumer <strong>Sony Alpha 7SII</strong> with an FE 16-35mm F2.8 GM lens, recording in the lowest-compression XAVC&nbsp;S format (H.264, 8-bit, 1920&times;1080). ISO was fixed at <strong>160</strong> for normal light and <strong>800</strong> for low-light to avoid in-camera denoising. Videos were captured at <strong>25&nbsp;fps, 1/50&nbsp;shutter, F6.3</strong>.
+      </p>
+      <p>
+        Scene motion was precisely controlled using a <strong>Kessler CineDrive</strong> shuttle dolly system, enabling horizontal translation and three-axis rotation. The programmable setup supports <strong>linear, rotational, and angled</strong> trajectories, representative of motion found in surveillance, robotics, and cinematography. Ground-truth references are obtained by a <em>repetition-and-selection</em> strategy: the dolly movement is repeated three to five times under normal lighting, and for each low-light frame the best-aligned reference is selected via histogram matching plus MAE minimization &mdash; preserving original low-light noise and motion blur without any warping or non-rigid registration.
+      </p>
+    </div>
+    <img src="images/dollysetting.jpg" style="width:80%;; display:block; margin:auto;">
+  </div>
+</section>
+
+<section class="section" style="background-color: #fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Comparison with Prior Datasets</h2>
+
+    <h3 class="title is-5" style="margin-top: 1.5rem;">Low-Light Video Datasets with Dynamic Content</h3>
+    <div class="table-container">
+      <table class="table is-striped is-fullwidth is-narrow">
+        <thead>
+          <tr>
+            <th>Dataset</th>
+            <th>Light</th>
+            <th>Dyn.</th>
+            <th>GT</th>
+            <th>Reg. precision</th>
+            <th>Motion type</th>
+            <th>Frames</th>
+            <th>Resolution</th>
+            <th>Avail.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>DRV</td><td>Real</td><td>&#10003;</td><td>&#10007;</td><td>n/a</td><td>diverse (no GT)</td><td>2.4k</td><td>3672p</td><td>&#10003;</td></tr>
+          <tr><td>SMOID</td><td>ND</td><td>&#10003;</td><td>&#10003;</td><td>frame-level</td><td>1 type (pan)</td><td>35.8k</td><td>1000p</td><td>&#10007;</td></tr>
+          <tr><td>RViDeNet</td><td>Real</td><td>stop-motion</td><td>&#10003;</td><td>frame-level</td><td>discontinuous</td><td>385</td><td>1080p</td><td>&#10003;</td></tr>
+          <tr><td>LLRVD</td><td>Real</td><td>&#10003;</td><td>&#10003;</td><td>mostly aligned</td><td>screen-replay</td><td>&mdash;</td><td>6336p</td><td>&#10007;</td></tr>
+          <tr><td>SDSD</td><td>ND</td><td>&#10003;</td><td>&#10003;</td><td>partial</td><td>1 type (linear)</td><td>37.5k</td><td>1080p</td><td>&#10003;</td></tr>
+          <tr><td>DUS</td><td>Real</td><td>&#10003;</td><td>&#10007;</td><td>n/a</td><td>diverse (no GT)</td><td>15k</td><td>1280p</td><td>&#10003;</td></tr>
+          <tr><td>DID</td><td>ND</td><td>&#10003;</td><td>&#10003;</td><td>partial</td><td>1 type (pan)</td><td>41.0k</td><td>1440p</td><td>&#10003;</td></tr>
+          <tr class="ours-row"><td>BVI-RLV (Ours)</td><td>Real</td><td>&#10003;</td><td>&#10003;</td><td>sub-pixel</td><td>4 types</td><td>31.8k</td><td>1080p</td><td>&#10003;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="is-size-7" style="color: #6b6b6b; margin: 0.5rem 0 0 0;">
+      <strong>Light</strong>: Real lighting vs. Neutral-Density (ND) filter. <strong>Dyn.</strong>: dynamic content. <strong>GT</strong>: paired ground truth. <strong>Reg. precision</strong>: alignment quality.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Benchmarks</h2>
+
+    <h3 id="cross-dataset-generalization" class="title is-5" style="margin-top: 1.5rem;">Cross-Dataset Generalization</h3>
+    <div class="content has-text-justified">
+      <p>
+        We benchmark image-based methods (RIDNet, SwinIR), the GAN-based mo-CGAN, video-restoration EDVR, and prior LLVE methods (SMOID-Net, SDSD-Net), alongside our four standardized baselines based on CNN, Transformer, Mamba, and Conditional Diffusion Model (CDM) architectures. Each model is trained on each of four datasets (DRV, SDSD, DID, BVI-RLV) and evaluated on all four test sets. The reported values are the unweighted average across the four test sets.
+      </p>
+      <img src="images/arch_new.jpg" style="width:80%;; display:block; margin:auto;">
+      <div class="publication-links has-text-centered" style="margin-top: 1.25rem;">
+        <span class="link-block">
+          <a href="https://github.com/lrr-rachel/PCDUNet" target="_blank" rel="noopener" class="button is-dark is-rounded">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>CNN</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="https://github.com/lrr-rachel/STA-SUNet" target="_blank" rel="noopener" class="button is-dark is-rounded">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Transformer</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="https://github.com/russellllaputa/BVI-Mamba" target="_blank" rel="noopener" class="button is-dark is-rounded">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Mamba</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="https://github.com/lrr-rachel/BVI-CDM" target="_blank" rel="noopener" class="button is-dark is-rounded">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>CDM</span>
+          </a>
+        </span>
+      </div>
+    </div>
+    <div class="table-wrap">
+    <div class="table-container">
+    <p class="has-text-centered is-size-5" style="margin-top: 0rem; color: #6b6b6b;">
+      <strong>Cross-dataset performance (PSNR&nbsp;&uarr; / SSIM&nbsp;&uarr; / LPIPS&nbsp;&darr;)</strong>
+    </p>
+    <p class="has-text-centered is-size-6" style="margin-top: 0rem; color: #6b6b6b;">
+      <strong>Bold</strong> and <u>underline</u> denote the best and second-best per training dataset. Image-based methods are shown for reference.
+    </p>
+      <table class="table is-fullwidth is-narrow is-hoverable benchmark-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Trained on DRV</th>
+            <th>Trained on SDSD</th>
+            <th>Trained on DID</th>
+            <th>Trained on BVI-RLV (Ours)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="faded"><td>RIDNet</td><td>18.43&nbsp;/&nbsp;0.678&nbsp;/&nbsp;0.340</td><td>18.15&nbsp;/&nbsp;0.675&nbsp;/&nbsp;0.345</td><td><strong>20.88</strong>&nbsp;/&nbsp;<strong>0.762</strong>&nbsp;/&nbsp;<strong>0.237</strong></td><td><u>19.69</u>&nbsp;/&nbsp;<u>0.756</u>&nbsp;/&nbsp;<u>0.261</u></td></tr>
+          <tr class="faded"><td>SwinIR</td><td><u>15.22</u>&nbsp;/&nbsp;<u>0.707</u>&nbsp;/&nbsp;0.421</td><td>11.00&nbsp;/&nbsp;0.436&nbsp;/&nbsp;0.533</td><td>11.58&nbsp;/&nbsp;0.588&nbsp;/&nbsp;<u>0.410</u></td><td><strong>17.54</strong>&nbsp;/&nbsp;<strong>0.733</strong>&nbsp;/&nbsp;<strong>0.348</strong></td></tr>
+          <tr><td>mo-CGAN</td><td>15.84&nbsp;/&nbsp;0.456&nbsp;/&nbsp;0.380</td><td>14.25&nbsp;/&nbsp;0.431&nbsp;/&nbsp;0.481</td><td><u>15.87</u>&nbsp;/&nbsp;<u>0.512</u>&nbsp;/&nbsp;<u>0.377</u></td><td><strong>17.41</strong>&nbsp;/&nbsp;<strong>0.557</strong>&nbsp;/&nbsp;<strong>0.302</strong></td></tr>
+          <tr><td>EDVR</td><td>15.73&nbsp;/&nbsp;0.598&nbsp;/&nbsp;0.354</td><td>16.20&nbsp;/&nbsp;0.640&nbsp;/&nbsp;0.330</td><td><u>19.53</u>&nbsp;/&nbsp;<u>0.701</u>&nbsp;/&nbsp;<u>0.275</u></td><td><strong>20.12</strong>&nbsp;/&nbsp;<strong>0.756</strong>&nbsp;/&nbsp;<strong>0.214</strong></td></tr>
+          <tr><td>SMOID-Net</td><td><u>17.66</u>&nbsp;/&nbsp;0.541&nbsp;/&nbsp;0.379</td><td>14.92&nbsp;/&nbsp;0.501&nbsp;/&nbsp;0.401</td><td>17.62&nbsp;/&nbsp;<u>0.554</u>&nbsp;/&nbsp;<u>0.323</u></td><td><strong>17.98</strong>&nbsp;/&nbsp;<strong>0.621</strong>&nbsp;/&nbsp;<strong>0.280</strong></td></tr>
+          <tr><td>SDSD-Net</td><td>16.31&nbsp;/&nbsp;0.587&nbsp;/&nbsp;0.366</td><td>16.08&nbsp;/&nbsp;0.569&nbsp;/&nbsp;0.359</td><td><strong>19.05</strong>&nbsp;/&nbsp;<u>0.652</u>&nbsp;/&nbsp;<u>0.291</u></td><td><u>18.05</u>&nbsp;/&nbsp;<strong>0.690</strong>&nbsp;/&nbsp;<strong>0.257</strong></td></tr>
+        </tbody>
+        <tbody class="group-divider">
+          <tr><td>CNN-based</td><td>15.00&nbsp;/&nbsp;0.492&nbsp;/&nbsp;0.422</td><td>17.07&nbsp;/&nbsp;0.677&nbsp;/&nbsp;0.356</td><td><u>18.91</u>&nbsp;/&nbsp;<u>0.725</u>&nbsp;/&nbsp;<strong>0.305</strong></td><td><strong>19.50</strong>&nbsp;/&nbsp;<strong>0.757</strong>&nbsp;/&nbsp;<u>0.316</u></td></tr>
+          <tr><td>Transformer-based</td><td>14.19&nbsp;/&nbsp;0.424&nbsp;/&nbsp;0.424</td><td>16.93&nbsp;/&nbsp;0.608&nbsp;/&nbsp;0.475</td><td><u>19.61</u>&nbsp;/&nbsp;<u>0.714</u>&nbsp;/&nbsp;<u>0.385</u></td><td><strong>20.64</strong>&nbsp;/&nbsp;<strong>0.765</strong>&nbsp;/&nbsp;<strong>0.243</strong></td></tr>
+          <tr><td>Mamba-based</td><td><strong>22.95</strong>&nbsp;/&nbsp;<u>0.784</u>&nbsp;/&nbsp;<u>0.195</u></td><td>19.91&nbsp;/&nbsp;0.751&nbsp;/&nbsp;0.281</td><td>18.74&nbsp;/&nbsp;0.738&nbsp;/&nbsp;0.238</td><td><u>22.93</u>&nbsp;/&nbsp;<strong>0.820</strong>&nbsp;/&nbsp;<strong>0.146</strong></td></tr>
+          <tr><td>DM-based</td><td>19.56&nbsp;/&nbsp;0.575&nbsp;/&nbsp;0.350</td><td><u>21.00</u>&nbsp;/&nbsp;<u>0.746</u>&nbsp;/&nbsp;0.292</td><td>19.44&nbsp;/&nbsp;0.683&nbsp;/&nbsp;<u>0.199</u></td><td><strong>22.20</strong>&nbsp;/&nbsp;<strong>0.773</strong>&nbsp;/&nbsp;<strong>0.175</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="is-size-7" style="color: #6b6b6b; margin: 0.25rem 0 0 0;">
+      Models trained on BVI-RLV consistently outperform those trained on DRV, SDSD, and DID across all test sets.
+    </p>
+    </div>
+    <p style="margin-top: 1rem;">
+      <img src="images/results_enlarged.jpg" style="width:100%;; display:block; margin:auto;">
+    </p>
+    <h3 class="title is-5" style="margin-top: 3rem;">Generalization to Outdoor Scenes</h3>
+    <div class="content has-text-justified">
+      <p>
+        Although BVI-RLV is captured indoors, models trained on it generalize effectively to outdoor low-light scenes. We evaluate the DM-based baseline on the <strong>SDSD outdoor</strong> test set after training on different datasets.
+      </p>
+    </div>
+    <div class="table-wrap">
+    <div class="table-container">
+    <p class="has-text-centered is-size-5" style="margin-bottom: 0rem; color: #6b6b6b;">
+      <strong>DM-based model evaluated on SDSD outdoor scenes</strong>
+    </p>
+    <p class="has-text-centered is-size-6" style="margin-bottom: 1rem; color: #6b6b6b;">
+      <strong>Bold</strong> and <u>underline</u> denote the best and second-best performance.
+    </p>
+      <table class="table is-fullwidth is-narrow is-hoverable benchmark-table">
+        <thead>
+          <tr>
+            <th>Trained with</th>
+            <th>PSNR&nbsp;&uarr;</th>
+            <th>SSIM&nbsp;&uarr;</th>
+            <th>LPIPS&nbsp;&darr;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>DRV</td><td>10.47</td><td>0.386</td><td>0.338</td></tr>
+          <tr><td>DID</td><td><u>20.37</u></td><td><u>0.609</u></td><td><u>0.237</u></td></tr>
+          <tr class="ours-row"><td>BVI-RLV (Ours)</td><td><strong>21.96</strong></td><td><strong>0.708</strong></td><td><strong>0.165</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p style="margin-top: 1rem;">
+      <img src="images/outdoor.jpg" style="width:100%;; display:block; margin:auto;">
+    </p>
+
+    <h3 class="title is-5" style="margin-top: 3rem;">Downstream Task: Video Instance Segmentation</h3>
+    <div class="content has-text-justified">
+      <p>
+        We further evaluate the usefulness of BVI-RLV-enhanced videos for high-level perception by running a <strong>frozen MinVIS</strong> model (ResNet-50 backbone pretrained on YouTube-VIS 2019) on the real low-light <strong>ELVIS-S</strong> benchmark. The Mamba-based enhancement model is trained on each dataset, and its enhanced frames are fed to the same VIS evaluator.
+      </p>
+    </div>
+    <div class="table-wrap">
+    <div class="table-container">
+    <p class="has-text-centered is-size-5" style="margin-bottom: 0rem; color: #6b6b6b;">
+      <strong>Video Instance Segmentation on ELVIS-S (frozen MinVIS)</strong>
+    </p>
+    <p class="has-text-centered is-size-6" style="margin-bottom: 1rem; color: #6b6b6b;">
+      <strong>Bold</strong> and <u>underline</u> denote the best and second-best performance.
+    </p>
+      <table class="table is-fullwidth is-narrow is-hoverable benchmark-table">
+        <thead>
+          <tr>
+            <th rowspan="2">Trained with</th>
+            <th colspan="3" class="has-text-centered">Mask AP</th>
+            <th colspan="2" class="has-text-centered">Mask AR</th>
+          </tr>
+          <tr>
+            <th>AP</th><th>AP<sub>50</sub></th><th>AP<sub>75</sub></th>
+            <th>AR<sub>1</sub></th><th>AR<sub>10</sub></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Low-light input</td><td>32.50</td><td>50.00</td><td>25.00</td><td>32.50</td><td>32.50</td></tr>
+          <tr><td>DRV</td><td>43.94</td><td>75.25</td><td><strong>40.84</strong></td><td>42.19</td><td>43.75</td></tr>
+          <tr><td>SDSD</td><td><u>46.70</u></td><td><u>90.10</u></td><td><u>32.92</u></td><td>37.19</td><td><u>50.62</u></td></tr>
+          <tr><td>DID</td><td>42.39</td><td>85.97</td><td>26.07</td><td><u>39.69</u></td><td>44.06</td></tr>
+          <tr class="ours-row"><td>BVI-RLV (Ours)</td><td><strong>51.98</strong></td><td><strong>96.78</strong></td><td>34.53</td><td><strong>43.12</strong></td><td><strong>56.25</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <p style="margin-top: 1rem;">
+      <img src="images/downstream_visual.jpg" style="width:100%;; display:block; margin:auto;">
+    </p>
+  </div>
+</section>
+
+<section class="section" style="background-color: #fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <!-- TODO: replace with the final citation once published -->
+    <pre class="bibtex">@article{linbvirlv,
+  title   = {BVI-RLV: A Fully Registered Dataset for Low-Light Video Enhancement},
+  author  = {Lin, Ruirui and Huang, Guoxi and Lin, Joanne and Sun, Qi and Malyugina, Alexandra and Bull, David R. and Anantrasirichai, Nantheera},
+  journal = {arXiv:2407.03535},
+  year    = {2026}
+}</pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container is-max-desktop has-text-centered">
+    <p class="is-size-7" style="margin-bottom: 0.75rem;">
+      <a href="https://hits.sh/bvi-rlv-tmm2026.github.io/" target="_blank" rel="noopener">
+        <img alt="Visits" src="https://hits.sh/bvi-rlv-tmm2026.github.io.svg?style=flat-square&label=Visits&color=2a7ac9">
+      </a>
+    </p>
+    <p class="is-size-7">
+      Website template adapted from the
+      <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a>,
+      itself based on the <a href="https://nerfies.github.io">Nerfies</a> project page.
+      Released under
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
